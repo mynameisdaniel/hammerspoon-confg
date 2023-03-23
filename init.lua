@@ -1,5 +1,8 @@
 -- https://www.hammerspoon.org/docs/
 -- https://www.hammerspoon.org/docs/hs.screen.html
+
+-- window management
+-- up down left right
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Left", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
@@ -44,6 +47,78 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Up", function()
   f.h = max.h / 2
   win:setFrame(f)
 end)
+
+--- 2x3 
+--- k l ;
+--- , . /
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "k", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+  f.x = max.x
+  f.y = max.y 
+  f.w = max.w / 3
+  f.h = max.h / 2
+  win:setFrame(f)
+end)
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, ",", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+  f.x = max.x
+  f.y = max.y / 2
+  f.w = max.w / 3
+  f.h = max.h / 2
+  win:setFrame(f)
+end)
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "l", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+  f.x = max.x + (max.w / 3)
+  f.y = max.y
+  f.w = max.w / 3
+  f.h = max.h / 2
+  win:setFrame(f)
+end)
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, ".", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+  f.x = max.x + max.w / 3
+  f.y = max.y / 2
+  f.w = max.w / 3
+  f.h = max.h / 2
+  win:setFrame(f)
+end)
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, ";", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+  f.x = max.x + (max.w / 3) + (max.w / 3)
+  f.y = max.y
+  f.w = max.w / 3
+  f.h = max.h / 2
+  win:setFrame(f)
+end)
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "/", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+  f.x = max.x + (max.w / 3) + (max.w / 3)
+  f.y = max.y / 2
+  f.w = max.w / 3
+  f.h = max.h / 2
+  win:setFrame(f)
+end)
+
+-- maximize
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "m", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
@@ -51,7 +126,42 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "m", function()
   local max = screen:frame()
   f.x = max.x
   f.y = max.y 
-  f.w = max.w 
+  f.w = max.w
+  f.h = max.h
+  win:setFrame(f)
+end)
+
+
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "i", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+  f.x = max.x
+  f.y = max.y 
+  f.w = max.w / 3
+  f.h = max.h
+  win:setFrame(f)
+end)
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "o", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+  f.x = max.x + (max.w / 3)
+  f.y = max.y 
+  f.w = max.w / 3
+  f.h = max.h
+  win:setFrame(f)
+end)
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "p", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+  f.x = max.x + (max.w / 3) + (max.w / 3)
+  f.y = max.y 
+  f.w = max.w / 3
   f.h = max.h
   win:setFrame(f)
 end)
