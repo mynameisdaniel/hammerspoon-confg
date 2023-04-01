@@ -1,9 +1,24 @@
 -- https://www.hammerspoon.org/docs/
 -- https://www.hammerspoon.org/docs/hs.screen.html
+local hyper = {"cmd", "alt", "ctrl"}
 
+-- reload and edit
+hs.hotkey.bind(hyper, "\\", function()
+  hs.reload()
+end)
+
+hs.hotkey.bind(hyper, "'", function()
+  local editorpath = "/usr/local/bin/subl "
+  local flag = "-n "
+  local filepath = "~/.hammerspoon/init.lua"
+  local cmd = editorpath .. flag .. filepath
+  hs.execute(cmd)
+end)
+
+hs.window.animationDuration = 0
 -- window management
 -- up down left right
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Left", function()
+hs.hotkey.bind(hyper, "Left", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -14,7 +29,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Left", function()
   f.h = max.h
   win:setFrame(f)
 end)
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Right", function()
+hs.hotkey.bind(hyper, "Right", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -25,7 +40,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Right", function()
   f.h = max.h
   win:setFrame(f)
 end)
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Down", function()
+hs.hotkey.bind(hyper, "Down", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -36,7 +51,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Down", function()
   f.h = max.h / 2
   win:setFrame(f)
 end)
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Up", function()
+hs.hotkey.bind(hyper, "Up", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -51,7 +66,7 @@ end)
 --- 2x3 
 --- k l ;
 --- , . /
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "k", function()
+hs.hotkey.bind(hyper, "k", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -62,7 +77,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "k", function()
   f.h = max.h / 2
   win:setFrame(f)
 end)
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, ",", function()
+hs.hotkey.bind(hyper, ",", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -73,7 +88,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, ",", function()
   f.h = max.h / 2
   win:setFrame(f)
 end)
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "l", function()
+hs.hotkey.bind(hyper, "l", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -84,7 +99,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "l", function()
   f.h = max.h / 2
   win:setFrame(f)
 end)
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, ".", function()
+hs.hotkey.bind(hyper, ".", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -95,7 +110,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, ".", function()
   f.h = max.h / 2
   win:setFrame(f)
 end)
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, ";", function()
+hs.hotkey.bind(hyper, ";", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -106,7 +121,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, ";", function()
   f.h = max.h / 2
   win:setFrame(f)
 end)
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "/", function()
+hs.hotkey.bind(hyper, "/", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -119,7 +134,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "/", function()
 end)
 
 -- maximize
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "m", function()
+hs.hotkey.bind(hyper, "m", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -132,7 +147,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "m", function()
 end)
 
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "i", function()
+hs.hotkey.bind(hyper, "i", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -143,7 +158,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "i", function()
   f.h = max.h
   win:setFrame(f)
 end)
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "o", function()
+hs.hotkey.bind(hyper, "o", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -154,7 +169,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "o", function()
   f.h = max.h
   win:setFrame(f)
 end)
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "p", function()
+hs.hotkey.bind(hyper, "p", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -165,7 +180,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "p", function()
   f.h = max.h
   win:setFrame(f)
 end)
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "9", function()
+hs.hotkey.bind(hyper, "9", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -176,7 +191,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "9", function()
   f.h = max.h
   win:setFrame(f)
 end)
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "0", function()
+hs.hotkey.bind(hyper, "0", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -187,7 +202,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "0", function()
   f.h = max.h
   win:setFrame(f)
 end)
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "-", function()
+hs.hotkey.bind(hyper, "-", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -198,7 +213,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "-", function()
   f.h = max.h
   win:setFrame(f)
 end)
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "=", function()
+hs.hotkey.bind(hyper, "=", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -209,12 +224,12 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "=", function()
   f.h = max.h
   win:setFrame(f)
 end)
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "]", function()
+hs.hotkey.bind(hyper, "]", function()
   local win = hs.window.focusedWindow()
   local screen = win:screen()
   win:moveToScreen(screen:next())
 end)
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "[", function()
+hs.hotkey.bind(hyper, "[", function()
   local win = hs.window.focusedWindow()
   local screen = win:screen()
   win:moveToScreen(screen:previous())
@@ -265,3 +280,31 @@ hs.hotkey.bind({"ctrl", "shift"}, "Right", function()
   local relativeCenter= cursorscreen:absoluteToLocal(absoluteCenter)
 hs.mouse.setRelativePosition(hs.geometry(relativeCenter.x*2, relativeCenter.y))
 end)
+
+local choices = {
+{
+  ["text"] = "Hammerspoon",
+  ["subText"] = "",
+  ["path"] = "~/.hammerspoon/init.lua"
+}
+}
+-- Focus the last used window.
+local function focusLastFocused()
+    local wf = hs.window.filter
+    local lastFocused = wf.defaultCurrentSpace:getWindows(wf.sortByFocusedLast)
+    if #lastFocused > 0 then lastFocused[1]:focus() end
+end
+
+local chooser = hs.chooser.new(function(choice)
+    if not choice then focusLastFocused(); return end
+    local filepath = choice["path"]
+    hs.pasteboard.setContents(filepath)
+    local editorpath = "/usr/local/bin/subl "
+    local flag = "-n "
+    local cmd = editorpath .. flag .. filepath
+    hs.execute(cmd)
+end)
+chooser:searchSubText(true)
+chooser:choices(choices)
+
+hs.hotkey.bind({"shift", "cmd"}, "space", function() chooser:show() end)
